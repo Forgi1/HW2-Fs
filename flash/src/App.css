@@ -1,0 +1,29 @@
+.flashcard {
+  cursor: pointer;
+  background: rgb(180, 227, 9);
+  padding: 180px;
+  margin: 190px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(10, 227, 118, 0.1);
+  transition: transform 0.3s;
+  font-family: "Protest Riot", sans-serif;
+}
+
+.flashcard:hover {
+  transform: scale(1.05);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff;
+} 
+button {
+  padding: 30px 60px;
+  margin: 10px;
+  font-size: 16px;
+  cursor: pointer;
+}
