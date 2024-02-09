@@ -1,8 +1,8 @@
 .flashcard {
   cursor: pointer;
   background: rgb(180, 227, 9);
-  padding: 180px;
-  margin: 190px;
+  padding: 50px;
+  margin: 20px;
   border-radius: 50px;
   box-shadow: 0 4px 8px rgba(10, 227, 118, 0.1);
   transition: transform 0.3s;
@@ -26,4 +26,16 @@ button {
   margin: 10px;
   font-size: 16px;
   cursor: pointer;
+}
+.card-counter {
+  position: absolute; /* Position the counter absolutely within the .flashcard */
+  top: 10px; /* Position it 10 pixels from the top */
+  left: 10px; /* Position it 10 pixels from the left */
+  background-color: rgba(0, 0, 0, 0.7); /* Give it a semi-transparent dark background */
+  color: white; /* Make the text color white for contrast */
+  padding: 5px 10px; /* Add some padding */
+  border-radius: 10px; /* Round the corners */
+  font-family: "Protest Riot", sans-serif; /* Use the custom font */
+  font-size: 1rem; /* Set a reasonable font size */
+  z-index: 10; /* Ensure it's above other elements */
 }
