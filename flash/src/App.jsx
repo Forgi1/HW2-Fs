@@ -19,6 +19,8 @@ const Flashcard = ({ card, cardNumber, totalCards  }) => {
 
 const App = () => {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [userAnswer, setUserAnswer] = useState("");
+
   const flashcards = [
     { question: 'Cell Theory', answer: 'All living things are composed of one or more cells.' },
     { question: 'Plasma Membrane', answer: 'A special boundary that helps control what enters and leaves the cell.' },
@@ -28,11 +30,18 @@ const App = () => {
   ];
 
   const goToNextCard = () => {
-    let nextIndex;
-    do {
-      nextIndex = Math.floor(Math.random() * flashcards.length);
-    } while (flashcards.length > 1 && nextIndex === currentCardIndex); // Avoid repeating the same card if possible
-    setCurrentCardIndex(nextIndex);
+    setCurrentCardIndex((prevIndex) => (prevIndex + 1) % flashcards.length);
+
+  };
+
+
+  
+  const checkAnswer = () => {
+    if (userAnswer.toLowerCase() === flashcards[currentCardIndex].answer.toLowerCase()) {
+      alert("Correct!");
+    } else {
+      alert("Incorrect, try again.");
+    }
   };
 
   const goToPreviousCard = () => {
@@ -46,8 +55,10 @@ const App = () => {
       <h3>Prepare for your next bio exam!</h3>
       <Flashcard key={currentCardIndex} card={flashcards[currentCardIndex]}  cardNumber={currentCardIndex + 1} 
         totalCards={flashcards.length}  />
-    
-      <button onClick={goToNextCard}>Next</button>
+     <input type="text" value={userAnswer} onChange={(e) => setUserAnswer(e.target.value)} />
+      <button onClick={checkAnswer}>Check Answer</button>
+      <button onClick={goToPreviousCard}>Previous</button>
+<button onClick={goToNextCard}>Next</button>
     </div>
   );
 };
